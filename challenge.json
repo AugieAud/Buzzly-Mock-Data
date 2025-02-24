@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "id": 7,
+      "slug": "Challenge-002",
+      "name": "Our Future: Learning and Employment Revolution",
+      "title": "Time to level up our learning - How can we make education more engaging?",
+      "category": "default",
+      "descriptionBody": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Imagine a world where education is exciting and learning is fun.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "What would that look like? How can we make school more engaging and find new ways to get our voices heard?",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Let’s talk about what needs to change to make learning enjoyable and how schools can better support us, especially when it comes to listening to our ideas.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "startAt": "2024-10-03T03:00:00.000Z",
+      "endAt": "2025-01-01T10:45:00.000Z",
+      "createdAt": "2024-07-27T02:50:02.891Z",
+      "updatedAt": "2025-02-23T22:06:28.527Z",
+      "publishedAt": "2024-09-29T23:56:00.376Z",
+      "isPrivate": false,
+      "password": null,
+      "lastNotified": {}
+    }
+  ]
+}

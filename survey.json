@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Test Survey",
+      "createdAt": "2024-09-17T23:15:30.852Z",
+      "updatedAt": "2024-10-01T02:57:51.848Z",
+      "publishedAt": "2024-09-17T23:15:51.265Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}
