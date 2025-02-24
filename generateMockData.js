@@ -165,15 +165,20 @@ const generateMockUsers = (count) => {
 };
 
 // Generate mock data
-const mockData = {
-  sponsors: generateSponsors(5),
-  challenges: generateChallenges(5),
-  surveys: generateMockSurveys(5),
-  submissions: generateMockUserSubmissions(5),
-  users: generateMockUsers(5),
-};
+const sponsorsData = generateSponsors(5);
+const challengesData = generateChallenges(5);
+const surveysData = generateMockSurveys(5);
+const submissionsData = generateMockUserSubmissions(5);
+const usersData = generateMockUsers(5);
 
-// Write to a JSON file
-fs.writeFileSync("mockData.json", JSON.stringify(mockData, null, 2));
+// Write each type of data to its own JSON file
+fs.writeFileSync("sponsor.json", JSON.stringify(sponsorsData, null, 2));
+fs.writeFileSync("challenge.json", JSON.stringify(challengesData, null, 2));
+fs.writeFileSync("survey.json", JSON.stringify(surveysData, null, 2));
+fs.writeFileSync(
+  "user-submissions.json",
+  JSON.stringify(submissionsData, null, 2)
+);
+fs.writeFileSync("user.json", JSON.stringify(usersData, null, 2));
 
-console.log("Mock data generated and saved to mockData.json!");
+console.log("Mock data generated and saved to JSON files!");
