@@ -21,22 +21,6 @@ const generateSponsors = (count) => {
   }));
 };
 
-// challenge descriptions
-const generateDescriptionBody = () => {
-  const paragraphs = [
-    "Imagine a world where education is exciting and learning is fun.",
-    "",
-    "What would that look like? How can we make school more engaging and find new ways to get our voices heard?",
-    "",
-    "Let’s talk about what needs to change to make learning enjoyable and how schools can better support us, especially when it comes to listening to our ideas.",
-  ];
-
-  return paragraphs.map((text) => ({
-    type: "paragraph",
-    children: [{ text, type: "text" }],
-  }));
-};
-
 // challenges
 const generateChallenges = (count) => {
   return Array.from({ length: count }, (_, i) => ({
@@ -50,7 +34,16 @@ const generateChallenges = (count) => {
       "health",
       "technology",
     ]),
-    descriptionBody: generateDescriptionBody(),
+    descriptionBody: [
+      {
+        type: "paragraph",
+        children: [{ text: faker.lorem.paragraph(), type: "text" }],
+      },
+      {
+        type: "paragraph",
+        children: [{ text: faker.lorem.paragraph(), type: "text" }],
+      },
+    ],
     startAt: faker.date.future().toISOString(),
     endAt: faker.date.future({ years: 1 }).toISOString(),
     createdAt: faker.date.past().toISOString(),
