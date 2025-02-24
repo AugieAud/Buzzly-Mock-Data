@@ -2,18 +2,46 @@
   "data": [
     {
       "id": 1,
-      "title": "Test Survey",
-      "createdAt": "2024-09-17T23:15:30.852Z",
-      "updatedAt": "2024-10-01T02:57:51.848Z",
-      "publishedAt": "2024-09-17T23:15:51.265Z"
+      "title": "Shanahan, King and White",
+      "createdAt": "2024-07-31T02:10:51.376Z",
+      "updatedAt": "2025-02-24T22:35:05.172Z",
+      "publishedAt": "2025-01-24T18:30:31.910Z"
+    },
+    {
+      "id": 2,
+      "title": "Howe, McGlynn and Reinger",
+      "createdAt": "2024-03-28T11:25:37.133Z",
+      "updatedAt": "2025-02-24T13:07:46.875Z",
+      "publishedAt": "2024-11-22T06:22:17.052Z"
+    },
+    {
+      "id": 3,
+      "title": "Johnston, Gorczany and Hills",
+      "createdAt": "2025-01-29T07:24:50.074Z",
+      "updatedAt": "2025-02-24T10:42:44.587Z",
+      "publishedAt": "2024-09-13T01:58:34.826Z"
+    },
+    {
+      "id": 4,
+      "title": "Ferry Inc",
+      "createdAt": "2024-06-29T18:06:23.923Z",
+      "updatedAt": "2025-02-24T15:31:31.940Z",
+      "publishedAt": "2025-01-26T16:32:19.943Z"
+    },
+    {
+      "id": 5,
+      "title": "Erdman, Stracke and Daugherty",
+      "createdAt": "2024-12-02T10:39:22.700Z",
+      "updatedAt": "2025-02-24T00:46:22.758Z",
+      "publishedAt": "2024-10-13T08:35:43.935Z"
     }
   ],
   "meta": {
     "pagination": {
       "page": 1,
-      "pageSize": 25,
+      "pageSize": 5,
       "pageCount": 1,
-      "total": 1
+      "total": 5
     }
   }
 }
