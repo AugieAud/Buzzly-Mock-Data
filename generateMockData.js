@@ -132,38 +132,52 @@ const generateMockSurveys = (count) => {
 
 //user submissions
 const generateMockUserSubmissions = (count) => {
+  // Get the actual challenges and users to reference
+  const availableChallenges = generateChallenges(10);
+  const availableUsers = generateMockUsers(10);
+  const availableSurveys = generateMockSurveys(5).data;
+
   return {
-    data: Array.from({ length: count }, (_, index) => ({
-      id: index + 1,
-      challengeId: faker.number.int({ min: 1, max: 20 }),
-      userId: faker.number.int({ min: 1, max: 100 }),
-      state: faker.helpers.arrayElement(["draft", "submitted", "reviewed"]),
-      body: faker.lorem.paragraphs(3),
-      rewardTier: faker.helpers.arrayElement([
-        "Bronze",
-        "Silver",
-        "Gold",
-        "Platinum",
-      ]),
-      createdAt: faker.date.past().toISOString(),
-      updatedAt: faker.date.recent().toISOString(),
-      publishedAt: faker.date.past().toISOString(),
-      videoId: faker.string.uuid(),
-      videoThumbnail: faker.image.urlPicsumPhotos({ width: 640, height: 360 }),
-      videoHLS: `https://videos.example.com/${faker.string.uuid()}.m3u8`,
-      videoMP4: `https://videos.example.com/${faker.string.uuid()}.mp4`,
-      title: faker.lorem.sentence(),
-      publicImageUrl: faker.image.urlLoremFlickr({ category: "nature" }),
-      publicAudioUrl: `https://audios.example.com/${faker.string.uuid()}.mp3`,
-      publicDocumentUrl: `https://documents.example.com/${faker.string.uuid()}.pdf`,
-      surveyAnswers: {
-        question1: faker.lorem.sentence(),
-        question2: faker.lorem.sentence(),
-        question3: faker.lorem.sentence(),
-      },
-      comment: faker.datatype.boolean() ? faker.lorem.sentence() : null,
-      toDisplay: faker.datatype.boolean(),
-    })),
+    data: Array.from({ length: count }, (_, index) => {
+      // Pick a random challenge and user that actually exist
+      const selectedChallenge = faker.helpers.arrayElement(availableChallenges);
+      const selectedUser = faker.helpers.arrayElement(availableUsers);
+      const selectedSurvey = faker.helpers.arrayElement(availableSurveys);
+
+      return {
+        id: index + 1,
+        challengeId: selectedChallenge.id,
+        userId: selectedUser.id,
+        state: faker.helpers.arrayElement(["draft", "submitted", "reviewed"]),
+        body: faker.lorem.paragraphs(3),
+        rewardTier: faker.helpers.arrayElement([
+          "Bronze",
+          "Silver",
+          "Gold",
+          "Platinum",
+        ]),
+        createdAt: faker.date.past().toISOString(),
+        updatedAt: faker.date.recent().toISOString(),
+        publishedAt: faker.date.past().toISOString(),
+        videoId: faker.string.uuid(),
+        videoThumbnail: faker.image.urlPicsumPhotos({
+          width: 640,
+          height: 360,
+        }),
+        videoHLS: `https://videos.example.com/${faker.string.uuid()}.m3u8`,
+        videoMP4: `https://videos.example.com/${faker.string.uuid()}.mp4`,
+        title: faker.lorem.sentence(),
+        publicImageUrl: faker.image.urlLoremFlickr({ category: "nature" }),
+        publicAudioUrl: `https://audios.example.com/${faker.string.uuid()}.mp3`,
+        publicDocumentUrl: `https://documents.example.com/${faker.string.uuid()}.pdf`,
+        surveyAnswers: {
+          [selectedSurvey.title]: faker.lorem.sentence(),
+          // Add more dynamic survey answers based on the selected survey
+        },
+        comment: faker.datatype.boolean() ? faker.lorem.sentence() : null,
+        toDisplay: faker.datatype.boolean(),
+      };
+    }),
   };
 };
 
