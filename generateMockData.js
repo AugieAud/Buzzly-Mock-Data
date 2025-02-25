@@ -2,23 +2,74 @@ const { faker } = require("@faker-js/faker");
 const fs = require("fs");
 
 // sponsors
-const generateSponsors = (count) => {
+const generateSponsorContacts = (count) => {
   return Array.from({ length: count }, () => ({
     id: faker.number.int({ min: 1, max: 1000 }),
-    slug: null,
-    organisationName: faker.company.name(),
-    organisationType: faker.helpers.arrayElement([
-      "corporate",
-      "non-profit",
-      "council",
+    name: `${faker.person.firstName()} ${faker.person.lastName()}`,
+    email: faker.internet.email(),
+    phone: faker.phone.number("+64 ## ### ####"),
+    role: faker.helpers.arrayElement([
+      "Community Manager",
+      "Program Director",
+      "Sponsorship Coordinator",
+      "Youth Engagement Lead",
     ]),
-    website: faker.internet.url(),
-    bio: faker.lorem.sentence(),
-    profileImage: faker.image.avatar(),
-    createdAt: faker.date.past().toISOString(),
-    updatedAt: faker.date.recent().toISOString(),
-    publishedAt: faker.date.past().toISOString(),
   }));
+};
+
+const generateSponsors = (count) => {
+  // First generate the challenges and users that we'll reference
+  const availableChallenges = generateChallenges(10); // Generate a pool of challenges
+  const availableUsers = generateMockUsers(10); // Generate a pool of users
+
+  return Array.from({ length: count }, () => {
+    // Randomly select 1-3 challenges for this sponsor
+    const sponsorChallenges = faker.helpers.arrayElements(
+      availableChallenges,
+      faker.number.int({ min: 1, max: 3 })
+    );
+
+    // Randomly select 1-2 users for this sponsor
+    const sponsorUsers = faker.helpers
+      .arrayElements(availableUsers, faker.number.int({ min: 1, max: 2 }))
+      .map((user) => ({
+        ...user,
+        role: faker.helpers.arrayElement(["sponsor_admin", "sponsor_user"]),
+      }));
+
+    return {
+      id: faker.number.int({ min: 1, max: 1000 }),
+      slug: null,
+      organisationName: faker.company.name(),
+      organisationType: faker.helpers.arrayElement([
+        "corporate",
+        "non-profit",
+        "council",
+      ]),
+      website: faker.internet.url(),
+      bio: faker.lorem.sentence(),
+      profileImage: faker.image.avatar(),
+      createdAt: faker.date.past().toISOString(),
+      updatedAt: faker.date.recent().toISOString(),
+      publishedAt: faker.date.past().toISOString(),
+      address: {
+        id: faker.number.int({ min: 1, max: 1000 }),
+        addressOne: faker.location.streetAddress(),
+        addressTwo: faker.helpers.maybe(
+          () => faker.location.secondaryAddress(),
+          { probability: 0.7 }
+        ),
+        suburb: faker.location.county(),
+        city: faker.location.city(),
+        state: faker.location.state(),
+        postcode: faker.location.zipCode(),
+        country: "New Zealand",
+      },
+      contacts: generateSponsorContacts(faker.number.int({ min: 1, max: 3 })),
+      challenges: sponsorChallenges,
+      users: sponsorUsers,
+    };
+  });
 };
 
 // challenges

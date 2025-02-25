@@ -2,38 +2,38 @@
   "data": [
     {
       "id": 1,
-      "title": "Shanahan, King and White",
-      "createdAt": "2024-07-31T02:10:51.376Z",
-      "updatedAt": "2025-02-24T22:35:05.172Z",
-      "publishedAt": "2025-01-24T18:30:31.910Z"
+      "title": "Herman and Sons",
+      "createdAt": "2024-11-28T01:05:49.799Z",
+      "updatedAt": "2025-02-25T03:10:02.183Z",
+      "publishedAt": "2024-10-16T08:23:15.846Z"
     },
     {
       "id": 2,
-      "title": "Howe, McGlynn and Reinger",
-      "createdAt": "2024-03-28T11:25:37.133Z",
-      "updatedAt": "2025-02-24T13:07:46.875Z",
-      "publishedAt": "2024-11-22T06:22:17.052Z"
+      "title": "Bogan, Satterfield and Smith",
+      "createdAt": "2024-03-31T02:00:08.704Z",
+      "updatedAt": "2025-02-25T18:36:47.318Z",
+      "publishedAt": "2024-12-11T10:12:10.680Z"
     },
     {
       "id": 3,
-      "title": "Johnston, Gorczany and Hills",
-      "createdAt": "2025-01-29T07:24:50.074Z",
-      "updatedAt": "2025-02-24T10:42:44.587Z",
-      "publishedAt": "2024-09-13T01:58:34.826Z"
+      "title": "Toy - Schinner",
+      "createdAt": "2024-03-29T16:07:00.210Z",
+      "updatedAt": "2025-02-25T01:06:40.121Z",
+      "publishedAt": "2024-08-16T02:47:04.025Z"
     },
     {
       "id": 4,
-      "title": "Ferry Inc",
-      "createdAt": "2024-06-29T18:06:23.923Z",
-      "updatedAt": "2025-02-24T15:31:31.940Z",
-      "publishedAt": "2025-01-26T16:32:19.943Z"
+      "title": "Wiza - Kassulke",
+      "createdAt": "2024-04-28T15:02:09.011Z",
+      "updatedAt": "2025-02-25T18:23:07.321Z",
+      "publishedAt": "2024-07-01T20:40:18.424Z"
     },
     {
       "id": 5,
-      "title": "Erdman, Stracke and Daugherty",
-      "createdAt": "2024-12-02T10:39:22.700Z",
-      "updatedAt": "2025-02-24T00:46:22.758Z",
-      "publishedAt": "2024-10-13T08:35:43.935Z"
+      "title": "Ryan - Hammes",
+      "createdAt": "2024-11-29T01:54:08.351Z",
+      "updatedAt": "2025-02-25T17:47:37.210Z",
+      "publishedAt": "2024-07-25T04:24:35.890Z"
     }
   ],
   "meta": {
