@@ -17,10 +17,9 @@ const generateSponsorContacts = (count) => {
   }));
 };
 
-const generateSponsors = (count) => {
-  // First generate the challenges and users that we'll reference
+const generateSponsors = (count, availableUsers) => {
+  // First generate the challenges that we'll reference
   const availableChallenges = generateChallenges(10); // Generate a pool of challenges
-  const availableUsers = generateMockUsers(10); // Generate a pool of users
 
   // Filter users to only include those marked as sponsors
   const sponsorUsers = availableUsers.filter((user) => user.isSponsor);
@@ -131,10 +130,9 @@ const generateMockSurveys = (count) => {
 };
 
 //user submissions
-const generateMockUserSubmissions = (count) => {
+const generateMockUserSubmissions = (count, availableUsers) => {
   // Get the actual challenges and users to reference
   const availableChallenges = generateChallenges(10);
-  const availableUsers = generateMockUsers(10);
   const availableSurveys = generateMockSurveys(5).data;
 
   return {
@@ -225,21 +223,23 @@ const generateMockUsers = (count) => {
   }));
 };
 
-// Generate mock data
-const sponsorsData = generateSponsors(5);
+// Generate mock data in the correct order
+const usersData = generateMockUsers(10); // Generate users first
 const challengesData = generateChallenges(5);
 const surveysData = generateMockSurveys(5);
-const submissionsData = generateMockUserSubmissions(5);
-const usersData = generateMockUsers(5);
+
+// Generate data using the shared user pool
+const sponsorsData = generateSponsors(5, usersData);
+const submissionsData = generateMockUserSubmissions(5, usersData);
 
 // Write each type of data to its own JSON file
-fs.writeFileSync("sponsor.json", JSON.stringify(sponsorsData, null, 2));
+fs.writeFileSync("user.json", JSON.stringify(usersData, null, 2));
 fs.writeFileSync("challenge.json", JSON.stringify(challengesData, null, 2));
 fs.writeFileSync("survey.json", JSON.stringify(surveysData, null, 2));
+fs.writeFileSync("sponsor.json", JSON.stringify(sponsorsData, null, 2));
 fs.writeFileSync(
   "user-submissions.json",
   JSON.stringify(submissionsData, null, 2)
 );
-fs.writeFileSync("user.json", JSON.stringify(usersData, null, 2));
 
 console.log("Mock data generated and saved to JSON files!");
