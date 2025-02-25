@@ -22,6 +22,9 @@ const generateSponsors = (count) => {
   const availableChallenges = generateChallenges(10); // Generate a pool of challenges
   const availableUsers = generateMockUsers(10); // Generate a pool of users
 
+  // Filter users to only include those marked as sponsors
+  const sponsorUsers = availableUsers.filter((user) => user.isSponsor);
+
   return Array.from({ length: count }, () => {
     // Randomly select 1-3 challenges for this sponsor
     const sponsorChallenges = faker.helpers.arrayElements(
@@ -29,9 +32,9 @@ const generateSponsors = (count) => {
       faker.number.int({ min: 1, max: 3 })
     );
 
-    // Randomly select 1-2 users for this sponsor
-    const sponsorUsers = faker.helpers
-      .arrayElements(availableUsers, faker.number.int({ min: 1, max: 2 }))
+    // Randomly select 1-2 users from the filtered sponsor users
+    const selectedSponsorUsers = faker.helpers
+      .arrayElements(sponsorUsers, faker.number.int({ min: 1, max: 2 }))
       .map((user) => ({
         ...user,
         role: faker.helpers.arrayElement(["sponsor_admin", "sponsor_user"]),
@@ -67,7 +70,7 @@ const generateSponsors = (count) => {
       },
       contacts: generateSponsorContacts(faker.number.int({ min: 1, max: 3 })),
       challenges: sponsorChallenges,
-      users: sponsorUsers,
+      users: selectedSponsorUsers,
     };
   });
 };
